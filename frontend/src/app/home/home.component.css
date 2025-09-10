@@ -1,0 +1,31 @@
+.hero {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: rgb(255, 255, 255);
+    height: fill;
+    width: fill;
+    padding: 80px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(1, 1, 1, 0.2);
+    text-align: left;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.card h1 {
+    font-size: 6.5em;
+    color: #13518b;
+    /* Marrone scuro per il testo principale */
+}
+
+.card h2 {
+    font-size: 2em;
+    color: #13518b;
+    /* Marrone scuro per il testo principale */
+}

@@ -1,0 +1,43 @@
+<mat-expansion-panel (opened)="panelState = true" (closed)="panelState = false" expanded>
+    <mat-expansion-panel-header class="flex-1 w-full">
+        <mat-panel-title>
+            <span class="text-2xl w-fit"><b>Sensori Antincendio</b></span>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class="my-1">
+        <mat-form-field appearance="fill">
+            <mat-label>Filtra</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+    </mat-card>
+    <hr>
+    <div class="responsive_table border-2">
+        <table mat-table [dataSource]="source" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="deviceId">
+                <th mat-header-cell *matHeaderCellDef>ID Sensore</th>
+                <td mat-cell *matCellDef="let element">{{ element.deviceId}}</td>
+            </ng-container>
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef>Ultima lettura</th>
+                <td mat-cell *matCellDef="let element">{{element.value}} {{ element.unit}}</td>
+            </ng-container>
+            <ng-container matColumnDef="history">
+                <th mat-header-cell *matHeaderCellDef>Cronologia</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="accent" matTooltip="Visualizza cronologia"
+                        (click)="openHistoryDialog(element.deviceId)">
+                        <mat-icon>history</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+            <tr mat-row *matRowDef="let row; columns:displayedColumns; "></tr>
+        </table>
+        <mat-paginator #paginator [pageSizeOptions]="[5, 10, 15, 20, 30]" [pageSize]="10" [length]="total"
+            showFirstLastButtons aria-label="Seleziona pagina">
+        </mat-paginator>
+    </div>
+</mat-expansion-panel>

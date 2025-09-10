@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.804.0",
+    "@aws-sdk/client-iot-data-plane": "^3.806.0",
+    "@aws-sdk/lib-dynamodb": "^3.804.0",
+    "axios": "^1.9.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemailer": "^7.0.2",
+    "socket.io": "^4.8.1"
+  }
+}

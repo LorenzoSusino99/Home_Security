@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row" class="p-5">
+        <span class="text-center flex-1">Accedi</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="loginForm">
+        <div fxFlex fxLayout="column">
+            <mat-form-field appearance="fill" fxFlex>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required>
+                <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+                    <span *ngIf="loginForm.controls.email.errors.required">Questo campo è obbligatorio!</span>
+                    <span *ngIf="loginForm.controls.email.errors.pattern">L'email inserita non è valida!</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required>
+                <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                    <span *ngIf="loginForm.controls.password.errors.required">Questo campo è obbligatorio!</span>
+                    <span *ngIf="loginForm.controls.password.errors.pattern">La password inserita non è valida!</span>
+                </mat-error>
+            </mat-form-field>
+            <a (click)="forgotPasswordAction()">Password dimenticata?</a>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="self-center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()"
+        [disabled]="!(loginForm.valid && loginForm.dirty)">
+        Accedi
+    </button>
+    <button mat-raised-button color="primary" mat-dialog-close>Chiudi</button>
+</mat-dialog-actions>

@@ -1,0 +1,16 @@
+<mat-toolbar class="mx-auto" color="primary">
+    <a class="p-3" router-link="home">{{ pageTitle }}</a>
+    <span class="spacer"></span>
+    <a class="p-3" *ngIf="login" (click)="loginAction()">Accedi</a>
+    <a class="p-3" *ngIf="login" (click)="registerAction()">Registrati</a>
+    <span class="flex items-center p-3" *ngIf="account">
+        <button [matMenuTriggerFor]="profile" mat-icon-button class="mr-5">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #profile="matMenu" class="">
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>Esci
+            </button>
+        </mat-menu>
+    </span>
+</mat-toolbar>

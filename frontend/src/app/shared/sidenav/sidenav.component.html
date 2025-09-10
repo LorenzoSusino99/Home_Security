@@ -1,0 +1,15 @@
+<mat-drawer-container class="z-40 w-auto h-screen mr-4" autosize>
+    <mat-drawer #drawer class=" p-3 border-solid border-grey-200 bg-white" mode="side" opened="true">
+        <mat-nav-list>
+            <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuItem()" routerLinkActive="selected"
+                class="my-3">
+                <a appAccordionToggle [routerLink]="['/', menuitem.state]"
+                    *ngIf="(menuitem.role === '' || menuitem.role === tokenPayload.role)">
+                    <mat-icon class="mx-1 align-middle">{{menuitem.icon}}</mat-icon>
+                    <span class="mx-1 align-middle">{{menuitem.name}}</span>
+                    <span fxFlex></span>
+                </a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+</mat-drawer-container>

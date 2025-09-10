@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div style="display:flex;">
+    <app-sidenav></app-sidenav>
+    <div class="border-2 rounded-xl p-6 w-full h-fit max-w-4xl mx-auto mt-10 shadow-md relative flex flex-col">
+        <h2 class="text-center text-xl font-semibold mb-6">Dati anagrafici e di contatto</h2>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm">Email</label>
+                <input class="border rounded w-full px-2 py-1" [(ngModel)]="user.email" [readonly]="true">
+            </div>
+
+            <div>
+                <label class="block text-sm">Username</label>
+                <input class="border rounded w-full px-2 py-1" [(ngModel)]="user.username" [readonly]="true">
+            </div>
+
+            <div>
+                <label class="block text-sm">Telegram ID</label>
+                <input class="border rounded w-full px-2 py-1" [(ngModel)]="user.telegramId" [readonly]="!editMode">
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 right-6">
+            <button *ngIf="!editMode" (click)="toggleEdit()"
+                class="border px-4 py-1 rounded hover:bg-gray-200">Modifica</button>
+            <div *ngIf="editMode" class="space-x-2">
+                <button (click)="save()" class="bg-blue-500 text-white px-4 py-1 rounded">Salva</button>
+                <button (click)="toggleEdit()" class="border px-4 py-1 rounded">Annulla</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
